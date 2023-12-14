@@ -294,7 +294,7 @@ address collateral_agg_addr= 0xDE31F8bFBD8c84b5360CFACCa3539B938dd78ae6;
     // cycle ends}
 
     //last-step: everyone collects collateral at the end of the cycle by transferring tokenId;
-    function _transfer(
+    function transfer(
         address from,
         address to,
         uint256 tokenId
