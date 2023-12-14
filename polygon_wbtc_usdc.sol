@@ -298,7 +298,7 @@ address collateral_agg_addr= 0xDE31F8bFBD8c84b5360CFACCa3539B938dd78ae6;
         address from,
         address to,
         uint256 tokenId
-    ) internal override {
+    ) internal {
         require(to == address(this), "you can only transfer to this contract");
         super._transfer(from, to, tokenId);
     }
