@@ -1,6 +1,6 @@
 
 
-   // SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0
 
 
 pragma solidity >=0.6.2 <0.9.0;
@@ -294,13 +294,11 @@ address collateral_agg_addr= 0xDE31F8bFBD8c84b5360CFACCa3539B938dd78ae6;
     // cycle ends}
 
     //last-step: everyone collects collateral at the end of the cycle by transferring tokenId;
-    function transfer(
-        address from,
-        address to,
-        uint256 tokenId
-    ) internal {
+    function transferFrom(address from, address to, uint256 tokenId) public virtual override {
+
+   
         require(to == address(this), "you can only transfer to this contract");
-        super._transfer(from, to, tokenId);
+        super.transferFrom(from, to, tokenId);
     }
 
     function onERC721Received(
@@ -401,8 +399,8 @@ address collateral_agg_addr= 0xDE31F8bFBD8c84b5360CFACCa3539B938dd78ae6;
             return s.currentMembers - 1;
         }
     }
-uint256 acollateral_decimals= 10**acollateral.decimals();
-uint256 stablecoin_agg_decimals= 10**stablecoin_agg.decimals();
+uint256 acollateral_decimals=  10**acollateral.decimals();
+uint256 stablecoin_agg_decimals=  10**stablecoin_agg.decimals();
   
     function getBTCPrice() public view returns (uint256) {
 
